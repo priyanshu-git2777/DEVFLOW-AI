@@ -1,0 +1,21 @@
+{
+  "name": "devflow-ai-server",
+  "version": "1.0.0",
+  "description": "Backend API for the DevFlow AI developer workspace",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Priyanshu Jaggi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
