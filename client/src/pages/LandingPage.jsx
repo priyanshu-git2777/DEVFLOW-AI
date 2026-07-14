@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 function LandingPage() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 px-6 py-16 text-white">
@@ -27,20 +28,20 @@ function LandingPage() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <button
-            type="button"
-            className="w-full rounded-xl bg-blue-600 px-7 py-3.5 font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500 sm:w-auto"
-          >
-            Start DevFlow AI
-          </button>
+  <Link
+    to="/register"
+    className="w-full rounded-xl bg-blue-600 px-7 py-3.5 font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/40 sm:w-auto"
+  >
+    Start DevFlow AI
+  </Link>
 
-          <button
-            type="button"
-            className="w-full rounded-xl border border-slate-600 bg-slate-800 px-7 py-3.5 font-bold text-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-700 sm:w-auto"
-          >
-            Explore Features
-          </button>
-        </div>
+  <Link
+    to="/projects"
+    className="w-full rounded-xl border border-slate-600 bg-slate-800 px-7 py-3.5 font-bold text-slate-200 transition hover:-translate-y-0.5 hover:border-slate-500 hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-500/30 sm:w-auto"
+  >
+    Explore Features
+  </Link>
+</div>
 
         <div className="mt-12 grid gap-4 text-left sm:grid-cols-3">
           <article className="rounded-2xl border border-slate-700 bg-slate-950/60 p-5">
