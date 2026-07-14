@@ -1,13 +1,16 @@
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
+import connectDatabase from './config/database.js'
 import healthRoutes from './routes/healthRoutes.js'
 
 dotenv.config()
 
+await connectDatabase()
+
 const app = express()
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5001
 
 app.use(
   cors({
