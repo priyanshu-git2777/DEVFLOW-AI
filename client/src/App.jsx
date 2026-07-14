@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router'
-import Navbar from './components/layout/Navbar'
 import AIWorkspacePage from './pages/AIWorkspacePage'
 import DashboardPage from './pages/DashboardPage'
 import LandingPage from './pages/LandingPage'
@@ -15,8 +14,6 @@ import TasksPage from './pages/TasksPage'
 function App() {
   return (
     <div className="min-h-screen bg-slate-950">
-      <Navbar />
-
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
