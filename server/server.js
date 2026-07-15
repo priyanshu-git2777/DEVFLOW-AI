@@ -1,3 +1,4 @@
+import authRoutes from "./routes/authRoutes.js";
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
@@ -19,6 +20,7 @@ app.use(
 )
 
 app.use(express.json())
+app.use("/api/auth", authRoutes);
 
 app.get('/', (request, response) => {
   response.status(200).json({
