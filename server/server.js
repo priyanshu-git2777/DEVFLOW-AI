@@ -1,10 +1,11 @@
-import authRoutes from "./routes/authRoutes.js";
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
 import connectDatabase from './config/database.js'
+import authRoutes from './routes/authRoutes.js'
 import healthRoutes from './routes/healthRoutes.js'
-import userRoutes from "./routes/userRoutes.js";
+import projectRoutes from './routes/projectRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -21,8 +22,6 @@ app.use(
 )
 
 app.use(express.json())
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
 
 app.get('/', (request, response) => {
   response.status(200).json({
@@ -32,6 +31,9 @@ app.get('/', (request, response) => {
 })
 
 app.use('/api/health', healthRoutes)
+app.use('/api/auth', authRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/projects', projectRoutes)
 
 app.use((request, response) => {
   response.status(404).json({
@@ -41,5 +43,7 @@ app.use((request, response) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`DevFlow AI server is running on http://localhost:${PORT}`)
+  console.log(
+    `DevFlow AI server is running on http://localhost:${PORT}`,
+  )
 })
