@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import connectDatabase from './config/database.js'
 import healthRoutes from './routes/healthRoutes.js'
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config()
 
@@ -21,6 +22,7 @@ app.use(
 
 app.use(express.json())
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 app.get('/', (request, response) => {
   response.status(200).json({
