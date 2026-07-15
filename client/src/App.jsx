@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router'
+import DashboardLayout from './layouts/DashboardLayout'
 import AIWorkspacePage from './pages/AIWorkspacePage'
 import DashboardPage from './pages/DashboardPage'
 import LandingPage from './pages/LandingPage'
@@ -18,19 +19,23 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route
-          path="/projects/:id"
-          element={<ProjectDetailsPage />}
-        />
-        <Route
-          path="/ai-workspace"
-          element={<AIWorkspacePage />}
-        />
-        <Route path="/snippets" element={<SnippetsPage />} />
-        <Route path="/tasks" element={<TasksPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route
+            path="/projects/:id"
+            element={<ProjectDetailsPage />}
+          />
+          <Route
+            path="/ai-workspace"
+            element={<AIWorkspacePage />}
+          />
+          <Route path="/snippets" element={<SnippetsPage />} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Route>
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
