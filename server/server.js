@@ -5,6 +5,7 @@ import connectDatabase from './config/database.js'
 import authRoutes from './routes/authRoutes.js'
 import healthRoutes from './routes/healthRoutes.js'
 import projectRoutes from './routes/projectRoutes.js'
+import taskRoutes from './routes/taskRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
@@ -34,6 +35,7 @@ app.use('/api/health', healthRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/projects', projectRoutes)
+app.use('/api/tasks', taskRoutes)
 
 app.use((request, response) => {
   response.status(404).json({
