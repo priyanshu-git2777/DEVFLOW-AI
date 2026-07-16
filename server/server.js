@@ -2,6 +2,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
 import connectDatabase from './config/database.js'
+import aiRoutes from './routes/aiRoutes.js'
 import authRoutes from './routes/authRoutes.js'
 import healthRoutes from './routes/healthRoutes.js'
 import projectRoutes from './routes/projectRoutes.js'
@@ -18,11 +19,17 @@ const PORT = process.env.PORT || 5001
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin:
+      process.env.CLIENT_URL ||
+      'http://localhost:5173',
   }),
 )
 
-app.use(express.json())
+app.use(
+  express.json({
+    limit: '1mb',
+  }),
+)
 
 app.get('/', (request, response) => {
   response.status(200).json({
@@ -36,6 +43,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/projects', projectRoutes)
 app.use('/api/tasks', taskRoutes)
+app.use('/api/ai', aiRoutes)
 
 app.use((request, response) => {
   response.status(404).json({
